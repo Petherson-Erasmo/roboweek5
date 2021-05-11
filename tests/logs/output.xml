@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.1 on win32)" generated="20210511 08:52:45.350" rpa="false">
+<suite id="s1" name="Busca" source="D:\Petherson\QANinja\roboweek5\roboweek5\tests\busca.robot">
+<test id="s1-t1" name="Buscar um restaurante">
+<kw name="New Browser" library="Browser">
+<tags>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+</tags>
+<doc>Create a new playwright Browser with specified options.
+See `Browser, Context and Page` for more information about Browser and related concepts.</doc>
+<arguments>
+<arg>chromium</arg>
+<arg>false</arg>
+</arguments>
+<msg timestamp="20210511 08:52:46.121" level="INFO">{"browser": "chromium", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0}</msg>
+<msg timestamp="20210511 08:52:46.469" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0}</msg>
+<status status="PASS" starttime="20210511 08:52:46.121" endtime="20210511 08:52:46.469"></status>
+</kw>
+<kw name="New Page" library="Browser">
+<tags>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+</tags>
+<doc>Open a new Page. A Page is the Playwright equivalent to a tab.
+See `Browser, Context and Page` for more information about Page concept.
+Returns a stable identifier for the created page.</doc>
+<arguments>
+<arg>http://parodifood.qaninja.academy/</arg>
+</arguments>
+<msg timestamp="20210511 08:52:49.409" level="INFO">Successfully initialized new page object and opened url: http://parodifood.qaninja.academy/</msg>
+<status status="PASS" starttime="20210511 08:52:46.484" endtime="20210511 08:52:49.410"></status>
+</kw>
+<kw name="Get Text" library="Browser">
+<tags>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+</tags>
+<doc>Returns text attribute of the element found by ``selector``.
+See the `Finding elements` section for details about the selectors.</doc>
+<arguments>
+<arg>css=span</arg>
+<arg>contains</arg>
+<arg>Nunca foi tão engraçado pedir comida</arg>
+</arguments>
+<status status="PASS" starttime="20210511 08:52:49.411" endtime="20210511 08:52:49.467"></status>
+</kw>
+<kw name="Click" library="Browser">
+<tags>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+</tags>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<arguments>
+<arg>text=Estou com fome!</arg>
+</arguments>
+<status status="PASS" starttime="20210511 08:52:49.467" endtime="20210511 08:52:49.548"></status>
+</kw>
+<kw name="Get Text" library="Browser">
+<tags>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+</tags>
+<doc>Returns text attribute of the element found by ``selector``.
+See the `Finding elements` section for details about the selectors.</doc>
+<arguments>
+<arg>css=h1 strong</arg>
+<arg>contains</arg>
+<arg>Ta na hora de matar a fome!</arg>
+</arguments>
+<status status="PASS" starttime="20210511 08:52:49.549" endtime="20210511 08:52:49.565"></status>
+</kw>
+<kw name="Click" library="Browser">
+<tags>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+</tags>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<arguments>
+<arg>css=.search-link</arg>
+</arguments>
+<status status="PASS" starttime="20210511 08:52:49.566" endtime="20210511 08:52:49.638"></status>
+</kw>
+<kw name="Fill Text" library="Browser">
+<tags>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+</tags>
+<doc>Clears and fills the given ``text`` into the text field found by ``selector``.</doc>
+<arguments>
+<arg>css=input[formcontrolname="searchControl"]</arg>
+<arg>Debuger</arg>
+</arguments>
+<msg timestamp="20210511 08:52:49.639" level="INFO">Fills the text 'Debuger' in the given field.</msg>
+<status status="PASS" starttime="20210511 08:52:49.639" endtime="20210511 08:52:49.666"></status>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<tags>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+</tags>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<arguments>
+<arg>css=.place-info-box</arg>
+<arg>visible</arg>
+</arguments>
+<msg timestamp="20210511 08:52:50.033" level="INFO">Wait for Element with selector: css=.place-info-box</msg>
+<status status="PASS" starttime="20210511 08:52:49.667" endtime="20210511 08:52:50.034"></status>
+</kw>
+<kw name="Get Text" library="Browser">
+<tags>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+</tags>
+<doc>Returns text attribute of the element found by ``selector``.
+See the `Finding elements` section for details about the selectors.</doc>
+<arguments>
+<arg>css=.place-info-box</arg>
+<arg>contains</arg>
+<arg>DEBUGER KING</arg>
+</arguments>
+<status status="PASS" starttime="20210511 08:52:50.035" endtime="20210511 08:52:50.377"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20210511 08:52:51.389" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210511 08:52:50.378" endtime="20210511 08:52:51.389"></status>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tags>
+<tag>PageContent</tag>
+</tags>
+<doc>Takes a screenshot of the current window and saves it to ``path``. Saves it as a png.</doc>
+<msg timestamp="20210511 08:52:51.701" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210511 08:52:51.389" endtime="20210511 08:52:51.701"></status>
+</kw>
+<status status="PASS" starttime="20210511 08:52:46.114" endtime="20210511 08:52:51.701" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20210511 08:52:45.350" endtime="20210511 08:52:51.794"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Busca">Busca</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
