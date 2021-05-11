@@ -1,20 +1,26 @@
-*** Settings ***
-Library   Browser
+* Settings *
+Resource        ${EXECDIR}/resources/base.robot
 
-*** Test Cases ***
-Buscar um restaurante
-    New Browser     chromium                false
-    New Page        http://parodifood.qaninja.academy/
-    Get Text        css=span                contains                Nunca foi tão engraçado pedir comida
+#Hooks
+Test Setup      Start Session
+Test Teardown   Take Screenshot
 
-    Click           text=Estou com fome!
-    Get Text        css=h1 strong           contains                Ta na hora de matar a fome!
+* Test Cases *
+Deve buscar um único restaurante
+    Go To Restaurant
 
-    Click           css=.search-link
-    Fill Text       css=input[formcontrolname="searchControl"]      Debuger
+    Search By                       Debuger
+    Restaurant Should Be Visible    DEBUGER KING
+    Restaurant Count Should Be      1
 
-    Wait For Elements State     css=.place-info-box     visible     
-    Get Text        css=.place-info-box     contains                DEBUGER KING
+Deve buscar por categoria
+    Go To Restaurant
 
-    Sleep           1
-    Take Screenshot 
+    Search By                       Cafe
+    Restaurant Should Be Visible    STARBUGS COFFEE
+
+Deve buscar todos os restaurantes
+    Go To Restaurant
+
+    Search By                   a
+    Restaurant Count Should Be  5
