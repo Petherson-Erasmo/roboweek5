@@ -6,10 +6,14 @@ Library             OperatingSystem
 
 Resource            actions/search.robot
 Resource            actions/cart.robot
+Resource            actions/order.robot
+
+* Variable *
+${DEFAULT_TIMEOUT}      10
 
 * Keywords *
 Start Session
-    New Browser     chromium                false
+    New Browser     ${browser}                ${headless}
     New Page        http://parodifood.qaninja.academy/
     Get Text        css=span                contains                Nunca foi tão engraçado pedir comida
 

@@ -6,7 +6,7 @@ Test Setup      Start Session
 Test Teardown   Take Screenshot
 
 * Test Cases *
-Deve adcionar um item ao carrinho
+Deve adicionar um item ao carrinho
     &{restaurante}      Create Dictionary       restaurant=STARBUGS COFFEE        desc=Nada melhor que um café pra te ajudar a resolver um bug.
 
     Go To Restaurant
@@ -16,7 +16,7 @@ Deve adcionar um item ao carrinho
     Should Add To Cart      Starbugs 500 error
     Total Cart Should Be    15,60
 
-Deve adcionar 3 itens ao carrinho
+Deve adicionar 3 itens ao carrinho
     [Tags]              temp
     ${cart_json}            Get JSON    cart.json
 
